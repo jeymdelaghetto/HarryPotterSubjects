@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hogwarts: The Secret Classroom Quest</title>
+    <title>Hogwarts Explorer: The 3rd Year Challenge</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=MedievalSharp&display=swap" rel="stylesheet">
     
     <style>
@@ -13,7 +13,6 @@
             --gryffindor-red: #740001;
             --gold: #d3a625;
             --ink: #2b1b17;
-            --ravenclaw-blue: #0e1a40;
         }
 
         body {
@@ -36,7 +35,6 @@
             border-radius: 12px;
             box-shadow: 0 0 40px rgba(211, 166, 37, 0.4);
             border: 4px solid var(--gold);
-            position: relative;
         }
 
         header {
@@ -49,16 +47,13 @@
         h1 {
             font-family: 'Cinzel', serif;
             color: var(--gryffindor-red);
-            font-size: 3.2em;
+            font-size: 3em;
             margin: 10px 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
-            line-height: 1.1;
         }
 
         h2 { 
             color: var(--gryffindor-red); 
             border-bottom: 2px solid var(--gold); 
-            padding-bottom: 5px; 
             font-family: 'Cinzel', serif;
         }
 
@@ -66,139 +61,90 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 12px;
-            margin-bottom: 35px;
+            gap: 10px;
+            margin-bottom: 30px;
         }
 
         .tab-btn {
             background-color: var(--gryffindor-red);
             color: var(--gold);
             border: 2px solid var(--gold);
-            padding: 12px 20px;
+            padding: 10px 15px;
             cursor: pointer;
             font-family: 'Cinzel', serif;
-            border-radius: 8px;
+            border-radius: 5px;
             font-weight: bold;
-            font-size: 1.1em;
-            transition: all 0.3s ease;
+            transition: 0.3s;
         }
 
         .tab-btn:hover, .tab-btn.active {
             background-color: var(--gold);
             color: var(--gryffindor-red);
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        .section-content { display: none; animation: fadeIn 0.6s; }
+        .section-content { display: none; animation: fadeIn 0.5s; }
         .section-content.active { display: block; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
         .owl-letter {
             background-color: #f4e8d1;
             border: 2px solid #8b4513;
-            padding: 25px;
-            margin: 20px 0;
+            padding: 20px;
             border-radius: 5px;
-            box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
             font-style: italic;
         }
 
-        .task-box {
-            background-color: rgba(211, 166, 37, 0.15);
-            border-left: 6px solid var(--gryffindor-red);
+        .task-card {
+            background-color: white;
+            border: 2px solid var(--gold);
             padding: 20px;
-            margin-bottom: 25px;
-            border-radius: 0 10px 10px 0;
+            margin: 15px 0;
+            border-radius: 10px;
+            box-shadow: 5px 5px 10px rgba(0,0,0,0.1);
         }
 
-        .grammar-scroll {
-            background: #fff9e8;
-            border: 2px dashed var(--gold);
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 15px;
+        .grammar-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
         }
+
+        .grammar-table th, .grammar-table td {
+            border: 1px solid var(--gold);
+            padding: 10px;
+            text-align: left;
+        }
+
+        .grammar-table th { background-color: var(--gryffindor-red); color: white; }
 
         .game-area {
             background-color: #1a1a24;
             color: #fff;
-            padding: 35px;
-            border-radius: 20px;
+            padding: 30px;
+            border-radius: 15px;
             text-align: center;
-            border: 4px solid var(--gold);
-            box-shadow: inset 0 0 20px #000;
+            border: 3px solid var(--gold);
         }
 
         .game-btn {
             background-color: var(--gold);
-            color: var(--ink);
-            padding: 14px 28px;
-            margin: 10px;
-            border-radius: 8px;
+            padding: 12px 24px;
+            margin: 8px;
+            border-radius: 5px;
             cursor: pointer;
-            font-family: 'MedievalSharp';
             border: none;
-            font-size: 1.2em;
+            font-family: 'MedievalSharp';
             font-weight: bold;
-            transition: 0.2s;
-        }
-
-        .game-btn:hover { background-color: #eec14d; transform: scale(1.05); }
-
-        .intro-img {
-            width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-            border-radius: 15px;
-            border: 3px solid var(--gold);
-            margin-top: 20px;
         }
 
         .highlight { color: var(--gryffindor-red); font-weight: bold; }
-        .magic-highlight { color: #0056b3; font-weight: bold; }
 
         footer {
-            margin-top: 50px;
+            margin-top: 40px;
             text-align: center;
-            font-size: 0.9em;
             border-top: 2px solid var(--gryffindor-red);
-            padding-top: 20px;
-        }
-
-        /* Certificate Form Styles */
-        .certificate-form label {
-            display: block;
-            margin-top: 20px;
-            font-family: 'Cinzel', serif;
-            font-weight: bold;
-        }
-
-        .certificate-form input[type="text"] {
-            width: 100%;
-            padding: 12px;
-            margin-top: 8px;
-            border: 2px solid var(--gryffindor-red);
-            border-radius: 5px;
-            font-size: 1em;
-            box-sizing: border-box;
-            background-color: #fff9e8;
-            font-family: 'MedievalSharp', cursive;
-        }
-
-        .download-btn {
-            background-color: #006400; 
-            color: white;
-            padding: 15px 30px;
-            border: 3px solid var(--gold);
-            border-radius: 10px;
-            font-size: 1.3em;
-            margin-top: 30px;
-            cursor: pointer;
-            font-family: 'Cinzel', serif;
-            font-weight: bold;
-            width: 100%;
+            padding-top: 15px;
         }
     </style>
 </head>
@@ -206,124 +152,122 @@
 
 <div class="container">
     <header>
-        <h1>The Secret Classroom</h1>
-        <p style="font-size: 1.4em; color: var(--gryffindor-red);">Hogwarts English Mission - Year 3</p>
+        <h1>The Explorer's Scroll</h1>
+        <p style="font-size: 1.2em; color: var(--gryffindor-red);">Official Mission for 3rd Year Students</p>
     </header>
 
     <div class="nav-tabs">
         <button class="tab-btn active" onclick="openTab('intro')">The Owl</button>
         <button class="tab-btn" onclick="openTab('grammar')">Magic Rules</button>
-        <button class="tab-btn" onclick="openTab('task')">The Mission</button>
+        <button class="tab-btn" onclick="openTab('task')">The Big Project</button>
         <button class="tab-btn" onclick="openTab('process')">The Steps</button>
         <button class="tab-btn" onclick="openTab('game')">O.W.L. Exams</button>
         <button class="tab-btn" onclick="openTab('certificate')">Certificate</button>
     </div>
 
     <div id="intro" class="section-content active">
-        <h2>A Letter for 3rd Year Wizards</h2>
+        <h2>Urgent: The Muggle World is Leaking!</h2>
         <div class="owl-letter">
-            <p>"Welcome, students!</p>
-            <p>The classroom is a mess! The house elves mixed up our magic materials. We need experts to identify our objects (like <em>scissors</em> and <em>dictionaries</em>) and check our subjects (like <em>Maths</em> or <em>History</em>).</p>
-            <p>Also, Professor McGonagall wants to know which objects are <strong>stronger than</strong> others and what they are <strong>made of</strong>. Finally, we must write down what happened yesterday in the past.</p>
-            <p>Are you ready for the challenge?"</p>
-            <p style="text-align: right;">— Professor Neville Longbottom</p>
+            <p>"Attention Wizards and Witches,</p>
+            <p>Artifacts from the Muggle world are appearing in Hogwarts! We've found things called <strong>'scissors'</strong>, <strong>'ebooks'</strong>, and even a <strong>'website'</strong>. We don't know what they are or what they are <strong>made of</strong>.</p>
+            <p>Your mission is to create a 'Comparison Guide' to explain our world to them and understand theirs. You must also write down what happened during this discovery yesterday.</p>
+            <p>Good luck, the future of the Statute of Secrecy is in your hands!"</p>
+            <p style="text-align: right;">— Arthur Weasley, Office of Muggle Artifacts</p>
         </div>
-        <img class="intro-img" src="https://i.makeagif.com/media/5-08-2017/KjbDvT.gif" alt="Hogwarts Classroom">
     </div>
 
     <div id="grammar" class="section-content">
-        <h2>Magic Language Rules</h2>
+        <h2>Spells of Language</h2>
         
-        <div class="grammar-scroll">
-            <h3>🧪 Rule 1: Comparing Things</h3>
-            <p>Use <strong>-er than</strong> to compare two things, and <strong>the -est</strong> for the top one!</p>
+        <div class="task-card">
+            <h3>🧪 Comparing Magic</h3>
+            <p>When two things are different, we use <strong>-er than</strong>. For the #1, we use <strong>the -est</strong>.</p>
             <ul>
-                <li>The Giant is <span class="highlight">bigger than</span> the Elf.</li>
-                <li>Hermione is <span class="highlight">the smartest</span> witch in class.</li>
-                <li>Maths is <span class="highlight">more difficult than</span> Art.</li>
-            </ul>
-        </div>
-        
-        <div class="grammar-scroll">
-            <h3>📜 Rule 2: What is it made of?</h3>
-            <p>To describe magic objects:</p>
-            <ul>
-                <li>The wand is <span class="magic-highlight">made of</span> wood.</li>
-                <li>The cauldron is <span class="magic-highlight">made of</span> metal.</li>
-                <li>The ebook is <span class="magic-highlight">made of</span> plastic and glass.</li>
+                <li>Maths is <span class="highlight">harder than</span> Art.</li>
+                <li>History is <span class="highlight">the most interesting</span> subject!</li>
+                <li>Harry's wand is <span class="highlight">better than</span> Ron's old wand.</li>
             </ul>
         </div>
 
-        <div class="grammar-scroll">
-            <h3>⏳ Rule 3: The Pensieve (Past Simple)</h3>
-            <p>Irregular verbs change their form when we talk about yesterday:</p>
+        <div class="task-card">
+            <h3>📜 Materials: "Made of"</h3>
+            <p>Describe what things are built with:</p>
             <ul>
-                <li>Go → <span class="highlight">Went</span> (Harry went to the library).</li>
-                <li>See → <span class="highlight">Saw</span> (I saw a ghost yesterday).</li>
-                <li>Have → <span class="highlight">Had</span> (We had a Maths exam).</li>
+                <li>The bin is <span class="highlight">made of</span> metal.</li>
+                <li>The dictionary is <span class="highlight">made of</span> paper.</li>
+                <li>The ebook is <span class="highlight">made of</span> plastic and glass.</li>
             </ul>
+        </div>
+
+        <div class="task-card">
+            <h3>⏳ The Pensieve (Past Simple)</h3>
+            <table class="grammar-table">
+                <tr><th>Present</th><th>Past</th><th>Example</th></tr>
+                <tr><td>Go</td><td>Went</td><td>I <strong>went</strong> to the library.</td></tr>
+                <tr><td>See</td><td>Saw</td><td>He <strong>saw</strong> a giant spider.</td></tr>
+                <tr><td>Have</td><td>Had</td><td>We <strong>had</strong> a geography class.</td></tr>
+                <tr><td>Eat</td><td>Ate</td><td>They <strong>ate</strong> chocolate frogs.</td></tr>
+            </table>
         </div>
     </div>
 
     <div id="task" class="section-content">
-        <h2>Your Team Mission</h2>
-        <p>Your team must create a <strong>"Magic School Catalog"</strong>. You need to include:</p>
-        
-        <div class="task-box">
-            <h3>1. The Object List</h3>
-            <p>Draw and name 5 objects: <em>Scissors, Dictionary, Bin, Ebook, Website</em>. Write what they are <strong>made of</strong>.</p>
+        <h2>Your Creation: The Explorer's Scroll</h2>
+        <p>In your groups, you will create a large poster (or digital scroll). It must have 3 sections:</p>
+
+        <div class="task-card">
+            <h3>Part 1: The Muggle Artifacts Case</h3>
+            <p>Draw 4 objects: <strong>scissors, bin, dictionary, ebook</strong>. Label them and write a sentence for each using <strong>"made of"</strong>.</p>
+            <p><em>Example: "This is a bin. It is made of plastic."</em></p>
         </div>
-        
-        <div class="task-box">
-            <h3>2. The Subject Battle</h3>
-            <p>Compare your subjects! Which is <em>better, harder, or more interesting</em>? (Maths vs Art vs History).</p>
+
+        <div class="task-card">
+            <h3>Part 2: The Hogwarts Subject Tournament</h3>
+            <p>Compare 3 subjects: <strong>Maths, Art, History, Geography</strong>. Write 4 sentences using comparatives and superlatives.</p>
+            <ul>
+                <li>Compare two (better than, smaller than...).</li>
+                <li>Choose the absolute winner (the best, the most interesting...).</li>
+            </ul>
         </div>
-        
-        <div class="task-box">
-            <h3>3. Yesterday's Diary</h3>
-            <p>Write 3 sentences about what your team <strong>did</strong> yesterday using the Past Simple (went, saw, ate, had).</p>
+
+        <div class="task-card">
+            <h3>Part 3: The Secret Diary (Yesterday)</h3>
+            <p>Write a short paragraph (4-5 lines) about what your group <strong>did yesterday</strong> at Hogwarts. Use at least 3 irregular verbs in the past (went, saw, had, ate, drank, wrote).</p>
         </div>
     </div>
 
     <div id="process" class="section-content">
-        <h2>The Step-by-Step Plan</h2>
-        <p>Follow these steps to complete your scroll:</p>
-        <ul>
-            <li><strong>Step 1:</strong> Search for the vocabulary in your book. Find: <em>Geography, History, Maths, Art.</em></li>
-            <li><strong>Step 2:</strong> Use your <em>Dictionary</em> to find more materials (wood, metal, paper, plastic).</li>
-            <li><strong>Step 3:</strong> Draw a <em>Bin</em> and a <em>Website</em> on your poster.</li>
-            <li><strong>Step 4:</strong> Write your comparisons: "My ebook is <span class="highlight">newer than</span> my old book."</li>
-        </ul>
+        <h2>The Step-by-Step Mission</h2>
+        <div class="task-card">
+            <p><strong>1. Assign Roles:</strong> Choose a <em>Lead Illustrator</em> (draws), a <em>Grammar Wizard</em> (checks spells), and a <em>Time-Keeper</em>.</p>
+            <p><strong>2. Investigation:</strong> Use your <strong>dictionary</strong> or the school <strong>website</strong> to find the names of materials (wood, metal, glass, plastic, paper).</p>
+            <p><strong>3. Draft:</strong> Write your sentences on a scrap of paper first! Check the past of irregular verbs.</p>
+            <p><strong>4. Presentation:</strong> Prepare to read your Scroll to the class. Use your best wizard voice!</p>
+        </div>
     </div>
 
     <div id="game" class="section-content">
-        <h2>O.W.L. Exams: 3rd Year Challenge</h2>
+        <h2>O.W.L. Exams: Level 3</h2>
         <div class="game-area">
-            <h3 id="question-text">Are you a true wizard or a muggle?</h3>
+            <h3 id="question-text">Ready for the exam?</h3>
             <div id="answers-container"></div>
-            <p id="result-msg" style="font-weight:bold; font-size:1.3em; margin: 15px 0; min-height: 35px;"></p>
-            <p style="font-size: 1.4em;">Wizard Points: <span id="score" style="color:var(--gold); font-size: 1.2em;">0</span> / 20</p>
-            <button id="start-btn" class="game-btn" onclick="startGame()">Start the Exam</button>
+            <p id="result-msg" style="min-height:30px; font-weight:bold;"></p>
+            <p>Points: <span id="score">0</span> / 20</p>
+            <button id="start-btn" class="game-btn" onclick="startGame()">Start Exam</button>
         </div>
     </div>
 
     <div id="certificate" class="section-content">
-        <h2>Magical Certificate of Completion</h2>
-        <p>If you passed the exam, enter your details to get your official certificate!</p>
-        
-        <div class="certificate-form">
-            <label for="team-name">Team Name:</label>
-            <input type="text" id="team-name" placeholder="The Bravery Lions">
-
-            <label for="wizard-1">Student Name:</label>
-            <input type="text" id="wizard-1" placeholder="Your Name">
-
-            <button class="download-btn" onclick="generateCertificate()">Download Certificate</button>
+        <h2>Claim Your Diploma</h2>
+        <div class="task-card">
+            <label>Wizard/Witch Name:</label><br>
+            <input type="text" id="wizard-name" style="width:100%; padding:10px; margin:10px 0;"><br>
+            <button class="game-btn" style="width:100%" onclick="generateCertificate()">Download Magic Diploma</button>
         </div>
     </div>
 
     <footer>
-        <p>Level: 3º Primaria | Content: Adjectives, School, Past Simple | <strong>Teacher Jesús Moreno Velasco</strong></p>
+        <p>Unit: Year 3 - Comparative Magic | <strong>Created by Jesús Moreno Velasco</strong></p>
     </footer>
 </div>
 
@@ -339,26 +283,26 @@
     }
 
     const allQuestions = [
-        { q: "In which subject do we study numbers?", a: ["Art", "Maths", "History"], c: 1 },
-        { q: "A ruler is usually _______ plastic.", a: ["made of", "made to", "make of"], c: 0 },
-        { q: "Hermione is _______ than Ron.", a: ["smartest", "smarter", "more smart"], c: 1 },
-        { q: "Yesterday, Harry _______ to Hogsmeade.", a: ["go", "goes", "went"], c: 2 },
-        { q: "What do we use to cut paper?", a: ["Dictionary", "Bin", "Scissors"], c: 2 },
-        { q: "Which subject studies maps and countries?", a: ["Geography", "Maths", "Art"], c: 0 },
-        { q: "The Firebolt is the _______ broom in the world.", a: ["fastest", "faster", "fast"], c: 0 },
-        { q: "We put our trash in the _______.", a: ["Dictionary", "Bin", "Ebook"], c: 1 },
-        { q: "Last night, I _______ a dragon.", a: ["see", "saw", "seen"], c: 1 },
-        { q: "We read magic info on a _______.", a: ["Website", "Scissors", "Maths"], c: 0 },
-        { q: "A dictionary is _______ paper.", a: ["made of", "made to", "made by"], c: 0 },
-        { q: "History is _______ than Art. (Long adjective)", a: ["interestinger", "more interesting", "the interestingest"], c: 1 },
-        { q: "Yesterday, they _______ a big cake.", a: ["eat", "ate", "eated"], c: 1 },
-        { q: "An ebook is _______ than a normal book.", a: ["modern", "more modern", "most modern"], c: 1 },
-        { q: "We use a _______ to find the meaning of words.", a: ["Bin", "Ebook", "Dictionary"], c: 2 },
-        { q: "The past of the verb 'HAVE' is...", a: ["Haved", "Had", "Has"], c: 1 },
-        { q: "My scissors are _______ metal.", a: ["made of", "of made", "making of"], c: 0 },
-        { q: "Maths is _______ subject for me. (Top level)", a: ["difficult", "the most difficult", "difficulter"], c: 1 },
-        { q: "In _______ class, we paint and draw.", a: ["Art", "Maths", "Geography"], c: 0 },
-        { q: "The past of 'SAY' is...", a: ["Said", "Sayed", "Sayer"], c: 0 }
+        { q: "We use _______ to cut paper in Art class.", a: ["Bin", "Scissors", "Dictionary"], c: 1 },
+        { q: "History is _______ than Maths.", a: ["interestinger", "more interesting", "the most interesting"], c: 1 },
+        { q: "An ebook is made of...", a: ["paper", "wood", "plastic and metal"], c: 2 },
+        { q: "Yesterday, I _______ (go) to the library.", a: ["go", "goed", "went"], c: 2 },
+        { q: "A dictionary is made _______ paper.", a: ["of", "by", "for"], c: 0 },
+        { q: "Which subject uses maps?", a: ["Maths", "Geography", "Art"], c: 1 },
+        { q: "The past of 'SEE' is...", a: ["Seed", "Saw", "Seen"], c: 1 },
+        { q: "Gryffindor is _______ team! (Top level)", a: ["the best", "better than", "gooder"], c: 0 },
+        { q: "We look for info on a school _______.", a: ["bin", "website", "scissors"], c: 1 },
+        { q: "Is Art _______ than Geography?", a: ["easyer", "easier", "the easiest"], c: 1 },
+        { q: "We _______ (eat) chocolate frogs yesterday.", a: ["ate", "eat", "eated"], c: 0 },
+        { q: "A bin is usually made of _______.", a: ["paper", "metal", "glass"], c: 1 },
+        { q: "In _______ class we paint.", a: ["Maths", "History", "Art"], c: 2 },
+        { q: "The past of 'HAVE' is...", a: ["Haves", "Had", "Haved"], c: 1 },
+        { q: "This magic book is _______ than that one.", a: ["oldest", "older", "more old"], c: 1 },
+        { q: "We use a _______ to check new words.", a: ["Dictionary", "Ebook", "Bin"], c: 0 },
+        { q: "The giant is _______ than the elf.", a: ["big", "bigger", "biggest"], c: 1 },
+        { q: "Last night, I _______ (drink) a potion.", a: ["drank", "drink", "drinked"], c: 0 },
+        { q: "A table is made of _______.", a: ["wood", "paper", "glass"], c: 0 },
+        { q: "What is the past of 'SAY'?", a: ["Sayed", "Sayer", "Said"], c: 2 }
     ];
 
     let currentQ = 0; let score = 0;
@@ -376,10 +320,10 @@
         msg.innerText = "";
 
         if (currentQ >= allQuestions.length) {
-            document.getElementById('question-text').innerText = "Exam Finished! Grade: " + (score >= 15 ? "Outstanding (O)" : (score >= 10 ? "Exceeds Expectations (E)" : "Troll (T)"));
+            document.getElementById('question-text').innerText = "Exam Over! You are a " + (score >= 15 ? "Master Wizard" : "Student");
             container.innerHTML = "";
             document.getElementById('start-btn').style.display = "inline-block";
-            document.getElementById('start-btn').innerText = "Try Again";
+            document.getElementById('start-btn').innerText = "Retake Exam";
             return;
         }
 
@@ -393,11 +337,9 @@
             btn.onclick = () => {
                 if(i === qData.c) {
                     score++;
-                    msg.innerText = "✨ Magic! Correct Answer";
-                    msg.style.color = "#4caf50";
+                    msg.innerText = "✨ Correct!"; msg.style.color = "green";
                 } else {
-                    msg.innerText = "❌ Oh no! Wrong Spell";
-                    msg.style.color = "#f44336";
+                    msg.innerText = "❌ Wrong!"; msg.style.color = "red";
                 }
                 document.getElementById('score').innerText = score;
                 currentQ++;
@@ -408,29 +350,15 @@
     }
 
     function generateCertificate() {
-        const team = document.getElementById('team-name').value || "Great Wizards";
-        const name = document.getElementById('wizard-1').value || "Young Student";
+        const name = document.getElementById('wizard-name').value || "Young Wizard";
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF({ orientation: 'landscape' });
-
         doc.setFillColor(253, 245, 230); doc.rect(0, 0, 300, 210, 'F');
         doc.setDrawColor(116, 0, 1); doc.setLineWidth(2); doc.rect(10, 10, 277, 190);
-        
-        doc.setFont('times', 'bold'); doc.setTextColor(116, 0, 1); doc.setFontSize(35);
-        doc.text("Hogwarts School Certificate", 148, 50, { align: 'center' });
-        
-        doc.setFontSize(20); doc.setTextColor(43, 27, 23);
-        doc.text("This certifies that the wizard/witch:", 148, 80, { align: 'center' });
-        
-        doc.setFontSize(30); doc.text(name.toUpperCase(), 148, 100, { align: 'center' });
-        
-        doc.setFontSize(18);
-        doc.text(`From the team: ${team}`, 148, 120, { align: 'center' });
-        doc.text("Has mastered 3rd Year Subjects, Adjectives and Past Spells.", 148, 140, { align: 'center' });
-        
-        doc.setFont('times', 'italic'); doc.text("Professor Jesús Moreno Velasco", 148, 170, { align: 'center' });
-        
-        doc.save(`Hogwarts_Year3_${name}.pdf`);
+        doc.setFont('times', 'bold'); doc.text("Hogwarts Proficiency Diploma", 148, 50, { align: 'center' });
+        doc.text(name.toUpperCase(), 148, 100, { align: 'center' });
+        doc.text("Expert in Muggle Artifacts and Magic Grammar", 148, 130, { align: 'center' });
+        doc.save(`Diploma_${name}.pdf`);
     }
 </script>
 </body>
