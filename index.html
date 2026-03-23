@@ -118,8 +118,6 @@
             border-radius: 8px;
         }
 
-        .subject-item img { width: 50px; margin-bottom: 10px; }
-
         .grammar-table {
             width: 100%;
             border-collapse: collapse;
@@ -190,59 +188,30 @@
             <p>"Attention Wizards and Witches,</p>
             <p>Artifacts from the Muggle world are appearing in Hogwarts! We've found things called <strong>'scissors'</strong>, <strong>'ebooks'</strong>, and even a <strong>'website'</strong>. We don't know what they are or what they are <strong>made of</strong>.</p>
             <p>Your mission is to explore our magic subjects and compare them to the Muggle world. Good luck!"</p>
-            <p style="text-align: right;">— Arthur Weasley</p>
+            <p style="text-align: right;">— Arthur Weasley, Office of Muggle Artifacts</p>
         </div>
     </div>
 
     <div id="subjects" class="section-content">
         <h2>Magical Subjects</h2>
-        <p>Explore the classes we have at Hogwarts. Look at the descriptions to help you with your <strong>Comparatives</strong>!</p>
+        <p>Explore the classes we have at Hogwarts. Compare them using your magic adjectives!</p>
         
         <div class="subject-grid">
-            <div class="subject-item">
-                <span style="font-size: 40px;">🧪</span>
-                <h3>Potions</h3>
-                <p><strong>Adjectives:</strong> Hard, Dangerous, Interesting.</p>
-                <p><em>"You mix magic liquids."</em></p>
-            </div>
-            <div class="subject-item">
-                <span style="font-size: 40px;">✨</span>
-                <h3>Charms</h3>
-                <p><strong>Adjectives:</strong> Easy, Exciting, Useful.</p>
-                <p><em>"Learn spells like Wingardium Leviosa."</em></p>
-            </div>
-            <div class="subject-item">
-                <span style="font-size: 40px;">🌿</span>
-                <h3>Herbology</h3>
-                <p><strong>Adjectives:</strong> Dirty, Relaxing, Important.</p>
-                <p><em>"Study magical plants and Mandrakes."</em></p>
-            </div>
-            <div class="subject-item">
-                <span style="font-size: 40px;">🧹</span>
-                <h3>Flying</h3>
-                <p><strong>Adjectives:</strong> Fun, Fast, Dangerous.</p>
-                <p><em>"The best class for Quidditch players!"</em></p>
-            </div>
+            <div class="subject-item"><h3>🧪 Potions</h3><p>Harder / Dangerous</p></div>
+            <div class="subject-item"><h3>✨ Charms</h3><p>Easier / Fun</p></div>
+            <div class="subject-item"><h3>🌿 Herbology</h3><p>Dirty / Interesting</p></div>
+            <div class="subject-item"><h3>🧹 Flying</h3><p>Fast / Exciting</p></div>
         </div>
 
-        <div class="task-card" style="margin-top:30px; background-color: #fdf5e6;">
+        <div class="task-card" style="margin-top:30px; text-align: center;">
             <h3>⚔️ The Subject Duel</h3>
-            <p>Select two subjects to see a comparison example:</p>
-            <select id="sub1" style="padding:10px;">
-                <option value="Potions">Potions</option>
-                <option value="Charms">Charms</option>
-                <option value="Herbology">Herbology</option>
-                <option value="Flying">Flying</option>
-            </select>
+            <p>Select two subjects to see a comparison:</p>
+            <select id="sub1" style="padding:10px;"><option value="Potions">Potions</option><option value="Charms">Charms</option><option value="Herbology">Herbology</option><option value="Flying">Flying</option></select>
             <span style="font-weight:bold;"> VS </span>
-            <select id="sub2" style="padding:10px;">
-                <option value="Flying">Flying</option>
-                <option value="Potions">Potions</option>
-                <option value="Charms">Charms</option>
-                <option value="Herbology">Herbology</option>
-            </select>
-            <button class="game-btn" onclick="compareSubjects()">Duel!</button>
-            <p id="duel-result" style="font-weight:bold; color: var(--gryffindor-red); margin-top:15px;"></p>
+            <select id="sub2" style="padding:10px;"><option value="Flying">Flying</option><option value="Potions">Potions</option><option value="Charms">Charms</option><option value="Herbology">Herbology</option></select>
+            <br><br>
+            <button class="game-btn" onclick="compareSubjects()">Cast Comparison Spell!</button>
+            <p id="duel-result" style="font-weight:bold; color: var(--gryffindor-red); margin-top:15px; min-height: 40px;"></p>
         </div>
     </div>
 
@@ -250,7 +219,11 @@
         <h2>Spells of Language</h2>
         <div class="task-card">
             <h3>🧪 Comparing Magic</h3>
-            <p>Short words: <strong>Adj + -er than</strong> (Harder than). <br> Long words: <strong>More + Adj + than</strong> (More interesting than).</p>
+            <p>Short words: <strong>-er than</strong> (Harder than). <br> Long words: <strong>More + adjective + than</strong> (More interesting than).</p>
+        </div>
+        <div class="task-card">
+            <h3>📜 Materials: "Made of"</h3>
+            <p>The bin is <span class="highlight">made of</span> metal. The ebook is <span class="highlight">made of</span> plastic and glass.</p>
         </div>
         <div class="task-card">
             <h3>⏳ The Pensieve (Past Simple)</h3>
@@ -266,10 +239,10 @@
     <div id="task" class="section-content">
         <h2>Your Creation: The Explorer's Scroll</h2>
         <div class="task-card">
-            <h3>The Scroll Challenge</h3>
-            <p>1. Draw 4 objects and write what they are <strong>made of</strong>.</p>
-            <p>2. Compare <strong>Hogwarts Subjects</strong> with <strong>Muggle Subjects</strong> (Maths, Art, Geography).</p>
-            <p>3. Write 3 things your team <strong>did yesterday</strong> at school using the past tense.</p>
+            <h3>The Mission (What to Create)</h3>
+            <p>1. <strong>Muggle Objects:</strong> Draw 4 items (scissors, bin, ebook, dictionary). Label them with <strong>"made of"</strong>.</p>
+            <p>2. <strong>Subject Battle:</strong> Compare 3 Hogwarts subjects with 3 Muggle subjects (Maths, Art, Geography). <br> <em>Example: "Potions is more dangerous than Maths!"</em></p>
+            <p>3. <strong>Yesterday's Diary:</strong> Write 4 sentences about what your team <strong>did yesterday</strong> using <em>went, saw, ate, had</em>.</p>
         </div>
     </div>
 
@@ -285,20 +258,20 @@
     </div>
 
     <div id="certificate" class="section-content">
-        <h2>Magical Certificate of Completion</h2>
+        <h2>Magical Certificate</h2>
         <div class="task-card certificate-form">
             <label>Team Name:</label>
-            <input type="text" id="team-name" placeholder="The Brave Gryffindors">
-            <label>Wizard/Witch 1 Name:</label>
-            <input type="text" id="wizard-1" placeholder="First student">
-            <label>Wizard/Witch 2 Name (Optional):</label>
-            <input type="text" id="wizard-2" placeholder="Second student">
-            <button class="game-btn" style="width:100%; margin-top:20px; background-color:#006400; color:white;" onclick="generateCertificate()">Download Magical Certificate</button>
+            <input type="text" id="team-name" placeholder="e.g. The Golden Snitches">
+            <label>Wizard 1:</label>
+            <input type="text" id="wizard-1" placeholder="Student Name">
+            <label>Wizard 2:</label>
+            <input type="text" id="wizard-2" placeholder="Student Name">
+            <button class="game-btn" style="width:100%; margin-top:20px;" onclick="generateCertificate()">Download PDF Certificate</button>
         </div>
     </div>
 
     <footer>
-        <p>Unit: Year 3 - The Explorer's Scroll | <strong>Created by Jesús Moreno Velasco</strong></p>
+        <p>Year 3 English Mission | <strong>Created by Jesús Moreno Velasco</strong></p>
     </footer>
 </div>
 
@@ -313,33 +286,37 @@
         if (event) event.currentTarget.classList.add('active');
     }
 
-    // SUBJECT DUEL LOGIC
     function compareSubjects() {
         const s1 = document.getElementById('sub1').value;
         const s2 = document.getElementById('sub2').value;
-        const result = document.getElementById('duel-result');
-        
-        if (s1 === s2) {
-            result.innerText = "You can't duel the same subject! Choose two different classes.";
-            return;
-        }
-
-        const comparisons = [
-            `${s1} is more exciting than ${s2}!`,
-            `${s1} is harder than ${s2}, but very interesting.`,
-            `In my opinion, ${s1} is better than ${s2}.`,
-            `${s2} is more dangerous than ${s1}!`
-        ];
-        const randomComp = comparisons[Math.floor(Math.random() * comparisons.length)];
-        result.innerText = "✨ Magic Result: " + randomComp;
+        const res = document.getElementById('duel-result');
+        if(s1 === s2) { res.innerText = "Choose two different subjects!"; return; }
+        const comps = [`${s1} is more exciting than ${s2}!`, `${s1} is harder than ${s2}.`, `${s1} is better than ${s2}!`, `${s2} is more dangerous than ${s1}!`];
+        res.innerText = "✨ " + comps[Math.floor(Math.random()*comps.length)];
     }
 
-    // GAME LOGIC (Reduced for example)
+    // --- FULL 20 QUESTIONS DATA ---
     const allQuestions = [
-        { q: "We use _______ to cut paper in Art class.", a: ["Bin", "Scissors", "Dictionary"], c: 1 },
+        { q: "We use _______ to cut paper.", a: ["Bin", "Scissors", "Ebook"], c: 1 },
         { q: "Potions is _______ than Charms.", a: ["harder", "more hard", "the hardest"], c: 0 },
-        { q: "Yesterday, I _______ (see) a ghost.", a: ["seed", "saw", "seen"], c: 1 }
-        // ... (Puedes añadir las 20 originales aquí)
+        { q: "A bin is usually made of _______.", a: ["paper", "metal", "glass"], c: 1 },
+        { q: "Yesterday, Harry _______ (go) to Hogsmeade.", a: ["go", "goed", "went"], c: 2 },
+        { q: "Which subject uses magic plants?", a: ["Potions", "Herbology", "Maths"], c: 1 },
+        { q: "An ebook is made of _______ and metal.", a: ["wood", "plastic", "paper"], c: 1 },
+        { q: "The past of 'SEE' is...", a: ["Seen", "Saw", "Seed"], c: 1 },
+        { q: "Flying is the _______ class!", a: ["most exciting", "more exciting", "excitinger"], c: 0 },
+        { q: "We check new words in a _______.", a: ["Dictionary", "Bin", "Website"], c: 0 },
+        { q: "History is _______ than Flying.", a: ["boringer", "more boring", "the most boring"], c: 1 },
+        { q: "They _______ (eat) dinner at the Great Hall.", a: ["ate", "eated", "eat"], c: 0 },
+        { q: "A dictionary is made of _______.", a: ["metal", "glass", "paper"], c: 2 },
+        { q: "Art is _______ than Geography.", a: ["easyer", "easier", "the easiest"], c: 1 },
+        { q: "We look for info on the school _______.", a: ["bin", "website", "scissors"], c: 1 },
+        { q: "The past of 'HAVE' is...", a: ["Haved", "Haves", "Had"], c: 2 },
+        { q: "Hermione is _______ than Ron.", a: ["smartest", "smarter", "more smart"], c: 1 },
+        { q: "Potions class is very _______.", a: ["dangerous", "dangerer", "more dangerous"], c: 0 },
+        { q: "Last night, I _______ (write) a letter.", a: ["writed", "wrote", "write"], c: 1 },
+        { q: "A desk is made of _______.", a: ["wood", "plastic", "paper"], c: 0 },
+        { q: "What is the past of 'DRINK'?", a: ["Drinked", "Drank", "Drunk"], c: 1 }
     ];
 
     let currentQ = 0; let score = 0;
@@ -355,7 +332,7 @@
         const msg = document.getElementById('result-msg');
         msg.innerText = "";
         if (currentQ >= allQuestions.length) {
-            document.getElementById('question-text').innerText = "Exam Over!";
+            document.getElementById('question-text').innerText = "Exam Over! " + (score >= 15 ? "Outstanding!" : "Try again!");
             container.innerHTML = "";
             document.getElementById('start-btn').style.display = "inline-block";
             return;
@@ -368,7 +345,7 @@
             btn.innerText = ans; btn.className = 'game-btn';
             btn.onclick = () => {
                 if(i === qData.c) { score++; msg.innerText = "✨ Correct!"; msg.style.color = "green"; }
-                else { msg.innerText = "❌ Wrong!"; msg.style.color = "red"; }
+                else { msg.innerText = "❌ Incorrect!"; msg.style.color = "red"; }
                 document.getElementById('score').innerText = score;
                 currentQ++;
                 setTimeout(loadQuestion, 1000);
@@ -377,26 +354,30 @@
         });
     }
 
-    // CERTIFICATE LOGIC
+    // ORIGINAL PROFESSIONAL CERTIFICATE LOGIC
     function generateCertificate() {
-        const teamName = document.getElementById('team-name').value.trim();
-        const wizard1 = document.getElementById('wizard-1').value.trim();
-        const wizard2 = document.getElementById('wizard-2').value.trim();
-        if (!teamName || !wizard1) { alert("Please enter names!"); return; }
-
+        const team = document.getElementById('team-name').value || "The Explorers";
+        const w1 = document.getElementById('wizard-1').value || "Witch/Wizard";
+        const w2 = document.getElementById('wizard-2').value || "";
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF({ orientation: 'landscape' });
         doc.setFillColor(253, 245, 230); doc.rect(0, 0, 300, 210, 'F');
-        doc.setLineWidth(3); doc.setDrawColor(116, 0, 1); doc.rect(10, 10, 277, 190, 'S');
-        doc.setFont('times', 'bold'); doc.setTextColor(116, 0, 1); doc.setFontSize(30);
-        doc.text("Hogwarts School of Witchcraft and Wizardry", 148, 40, { align: 'center' });
-        doc.setFontSize(22); doc.text("OFFICIAL EXPLORER CERTIFICATE", 148, 60, { align: 'center' });
-        doc.setFont('times', 'normal'); doc.setTextColor(0, 0, 0); doc.text("Awarded to the team:", 148, 85, { align: 'center' });
-        doc.setFontSize(28); doc.setTextColor(116, 0, 1); doc.text(teamName.toUpperCase(), 148, 100, { align: 'center' });
-        doc.setFontSize(20); doc.setTextColor(0, 0, 0); doc.text(wizard1 + (wizard2 ? " & " + wizard2 : ""), 148, 120, { align: 'center' });
-        doc.text("For excellence in Magical Subjects and English Grammar.", 148, 150, { align: 'center' });
-        doc.text("Professor Jesús Moreno Velasco", 220, 185); doc.line(200, 180, 260, 180);
-        doc.save(`Certificate_${teamName}.pdf`);
+        doc.setLineWidth(2); doc.setDrawColor(116, 0, 1); doc.rect(10, 10, 277, 190);
+        doc.setDrawColor(211, 166, 37); doc.rect(13, 13, 271, 184);
+        doc.setFont('times', 'bold'); doc.setTextColor(116, 0, 1); doc.setFontSize(28);
+        doc.text("Hogwarts Classroom Proficiency Certificate", 148, 45, { align: 'center' });
+        doc.setFontSize(18); doc.setTextColor(0, 0, 0);
+        doc.text("This document certifies that the team:", 148, 70, { align: 'center' });
+        doc.setFontSize(26); doc.setTextColor(116, 0, 1);
+        doc.text(team.toUpperCase(), 148, 90, { align: 'center' });
+        doc.setFontSize(20); doc.setTextColor(0, 0, 0);
+        doc.text("Members: " + w1 + (w2 ? " & " + w2 : ""), 148, 115, { align: 'center' });
+        doc.setFontSize(16);
+        doc.text("Have mastered Hogwarts Subjects, Materials and English Grammar.", 148, 145, { align: 'center' });
+        doc.setFontSize(12);
+        doc.text("Headmaster Albus Dumbledore", 50, 185); doc.line(30, 180, 80, 180);
+        doc.text("Professor Jesús Moreno Velasco", 240, 185, { align: 'right' }); doc.line(200, 180, 260, 180);
+        doc.save(`Certificate_${team}.pdf`);
     }
 </script>
 </body>
