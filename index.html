@@ -103,6 +103,23 @@
             border-radius: 10px;
         }
 
+        .artifact-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .artifact-item {
+            background: #fff;
+            border: 1px solid var(--gold);
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+
+        .artifact-item strong { color: var(--gryffindor-red); }
+
         .subject-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -173,6 +190,13 @@
             border-radius: 8px;
             box-shadow: 0 10px 20px rgba(0,0,0,0.5);
         }
+
+        .example-box {
+            background-color: #fff3cd;
+            border-left: 5px solid #856404;
+            padding: 15px;
+            margin: 20px 0;
+        }
     </style>
 </head>
 <body>
@@ -185,6 +209,7 @@
 
     <div class="nav-tabs">
         <button class="tab-btn active" onclick="openTab('intro')">The Owl</button>
+        <button class="tab-btn" onclick="openTab('artifacts')">Magical Artifacts</button>
         <button class="tab-btn" onclick="openTab('subjects')">Hogwarts Subjects</button>
         <button class="tab-btn" onclick="openTab('grammar')">Magic Rules</button>
         <button class="tab-btn" onclick="openTab('task')">The Big Project</button>
@@ -200,8 +225,40 @@
             <p>Your mission is to explore our magic subjects and compare them to the Muggle world. Watch out for any trolls in the dungeon while you work!"</p>
             <p style="text-align: right;">— Arthur Weasley, Office of Muggle Artifacts</p>
         </div>
-        
         <img class="main-gif" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg14zXDcV-DspH4_Tj_u_n6QbVxcX6pU9m4xLvaDn0CptTqE4yKgHIjXb8y-8uxp2FouddVR6GI7T-CsuXKPoa7LP6QlmghU8q2sPVMiRxHo9jvtZX2hn5Wqyx6vN4qe62qwBYb0qEYx_l-/s1600/tumblr_o2q9smLqSP1uy3ut1o2_r1_540.gif" alt="Mountain Troll in the bathroom">
+    </div>
+
+    <div id="artifacts" class="section-content">
+        <h2>Encyclopedia of Magical Objects</h2>
+        <p>Explore these 15 magical items to understand their power and materials.</p>
+        
+        <div class="artifact-list">
+            <div class="artifact-item"><strong>1. Magic Wand:</strong> Made of wood and a magical core. Used for spells.</div>
+            <div class="artifact-item"><strong>2. Invisibility Cloak:</strong> Made of special fabric. Makes you invisible.</div>
+            <div class="artifact-item"><strong>3. Time-Turner:</strong> Made of gold and sand. Used to travel to the past.</div>
+            <div class="artifact-item"><strong>4. Marauder's Map:</strong> Made of parchment. Shows where everyone is.</div>
+            <div class="artifact-item"><strong>5. Remembrall:</strong> Made of glass and smoke. Turns red if you forgot something.</div>
+            <div class="artifact-item"><strong>6. Sneakoscope:</strong> Made of glass. It spins if there is someone untrustworthy.</div>
+            <div class="artifact-item"><strong>7. Sorting Hat:</strong> Made of old leather and fabric. Decides your house.</div>
+            <div class="artifact-item"><strong>8. Pensieve:</strong> Made of stone. Used to review memories.</div>
+            <div class="artifact-item"><strong>9. Firebolt:</strong> Made of wood and iron. The fastest broomstick.</div>
+            <div class="artifact-item"><strong>10. Deluminator:</strong> Made of silver. It can take or give light.</div>
+            <div class="artifact-item"><strong>11. Portkey:</strong> Often made of old Muggle objects. Teleports wizards.</div>
+            <div class="artifact-item"><strong>12. Floo Powder:</strong> A magical powder used for traveling through fireplaces.</div>
+            <div class="artifact-item"><strong>13. Howler:</strong> Made of red paper. A letter that screams!</div>
+            <div class="artifact-item"><strong>14. Mirror of Erised:</strong> Made of gold and glass. Shows your deepest desire.</div>
+            <div class="artifact-item"><strong>15. Omnioculars:</strong> Made of brass. Used to watch Quidditch in slow motion.</div>
+        </div>
+
+        <div class="task-card">
+            <h3>Magical vs. Muggle Comparison (Guide)</h3>
+            <p>Use these 3 examples as a model to create your own (these do not count for your final project!):</p>
+            <div class="example-box">
+                <p><strong>Example A:</strong> The <em>Firebolt broomstick</em> is <strong>faster than</strong> a Muggle bicycle.</p>
+                <p><strong>Example B:</strong> An <em>Invisibility Cloak</em> is <strong>more expensive than</strong> a normal coat.</p>
+                <p><strong>Example C:</strong> The <em>Sorting Hat</em> is <strong>older than</strong> my school uniform.</p>
+            </div>
+        </div>
     </div>
 
     <div id="subjects" class="section-content">
@@ -284,7 +341,7 @@
         var buttons = document.getElementsByClassName('tab-btn');
         for (var i = 0; i < buttons.length; i++) buttons[i].classList.remove('active');
         document.getElementById(tabId).classList.add('active');
-        if (event) event.currentTarget.classList.add('active');
+        if (event.currentTarget) event.currentTarget.classList.add('active');
     }
 
     function compareSubjects() {
