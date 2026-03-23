@@ -103,14 +103,14 @@
             border-radius: 10px;
         }
 
-        .artifact-list {
+        .info-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 15px;
             margin-top: 20px;
         }
 
-        .artifact-item {
+        .info-item {
             background: #fff;
             border: 1px solid var(--gold);
             padding: 15px;
@@ -118,7 +118,7 @@
             box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
         }
 
-        .artifact-item strong { color: var(--gryffindor-red); }
+        .info-item strong { color: var(--gryffindor-red); }
 
         .subject-grid {
             display: grid;
@@ -134,20 +134,6 @@
             text-align: center;
             border-radius: 8px;
         }
-
-        .grammar-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 15px 0;
-        }
-
-        .grammar-table th, .grammar-table td {
-            border: 1px solid var(--gold);
-            padding: 10px;
-            text-align: left;
-        }
-
-        .grammar-table th { background-color: var(--gryffindor-red); color: white; }
 
         .game-area {
             background-color: #1a1a24;
@@ -209,8 +195,8 @@
 
     <div class="nav-tabs">
         <button class="tab-btn active" onclick="openTab('intro')">The Owl</button>
-        <button class="tab-btn" onclick="openTab('artifacts')">Magical Artifacts</button>
-        <button class="tab-btn" onclick="openTab('subjects')">Hogwarts Subjects</button>
+        <button class="tab-btn" onclick="openTab('artifacts')">Magical Artifacts & Subjects</button>
+        <button class="tab-btn" onclick="openTab('subjects')">Subject Duel</button>
         <button class="tab-btn" onclick="openTab('grammar')">Magic Rules</button>
         <button class="tab-btn" onclick="openTab('task')">The Big Project</button>
         <button class="tab-btn" onclick="openTab('game')">O.W.L. Exams</button>
@@ -229,53 +215,54 @@
     </div>
 
     <div id="artifacts" class="section-content">
-        <h2>Encyclopedia of Magical Objects</h2>
-        <p>Explore these 15 magical items to understand their power and materials.</p>
+        <h2>Reference Guide: Artifacts & Classes</h2>
         
-        <div class="artifact-list">
-            <div class="artifact-item"><strong>1. Magic Wand:</strong> Made of wood and a magical core. Used for spells.</div>
-            <div class="artifact-item"><strong>2. Invisibility Cloak:</strong> Made of special fabric. Makes you invisible.</div>
-            <div class="artifact-item"><strong>3. Time-Turner:</strong> Made of gold and sand. Used to travel to the past.</div>
-            <div class="artifact-item"><strong>4. Marauder's Map:</strong> Made of parchment. Shows where everyone is.</div>
-            <div class="artifact-item"><strong>5. Remembrall:</strong> Made of glass and smoke. Turns red if you forgot something.</div>
-            <div class="artifact-item"><strong>6. Sneakoscope:</strong> Made of glass. It spins if there is someone untrustworthy.</div>
-            <div class="artifact-item"><strong>7. Sorting Hat:</strong> Made of old leather and fabric. Decides your house.</div>
-            <div class="artifact-item"><strong>8. Pensieve:</strong> Made of stone. Used to review memories.</div>
-            <div class="artifact-item"><strong>9. Firebolt:</strong> Made of wood and iron. The fastest broomstick.</div>
-            <div class="artifact-item"><strong>10. Deluminator:</strong> Made of silver. It can take or give light.</div>
-            <div class="artifact-item"><strong>11. Portkey:</strong> Often made of old Muggle objects. Teleports wizards.</div>
-            <div class="artifact-item"><strong>12. Floo Powder:</strong> A magical powder used for traveling through fireplaces.</div>
-            <div class="artifact-item"><strong>13. Howler:</strong> Made of red paper. A letter that screams!</div>
-            <div class="artifact-item"><strong>14. Mirror of Erised:</strong> Made of gold and glass. Shows your deepest desire.</div>
-            <div class="artifact-item"><strong>15. Omnioculars:</strong> Made of brass. Used to watch Quidditch in slow motion.</div>
+        <h3>✨ 15 Magical Objects</h3>
+        <div class="info-grid">
+            <div class="info-item"><strong>1. Magic Wand:</strong> Made of wood and a phoenix feather.</div>
+            <div class="info-item"><strong>2. Invisibility Cloak:</strong> Made of magical fabric. Very light.</div>
+            <div class="info-item"><strong>3. Time-Turner:</strong> Made of gold and sand. Very dangerous.</div>
+            <div class="info-item"><strong>4. Marauder's Map:</strong> Made of parchment and ink.</div>
+            <div class="info-item"><strong>5. Remembrall:</strong> Made of glass. Turns red if you forget.</div>
+            <div class="info-item"><strong>6. Sneakoscope:</strong> Made of glass. It spins and whistles.</div>
+            <div class="info-item"><strong>7. Sorting Hat:</strong> Made of old leather. It talks!</div>
+            <div class="info-item"><strong>8. Pensieve:</strong> Made of stone. Used for memories.</div>
+            <div class="info-item"><strong>9. Firebolt:</strong> Made of wood and iron. Fastest broom.</div>
+            <div class="info-item"><strong>10. Deluminator:</strong> Made of silver. Absorbs light.</div>
+            <div class="info-item"><strong>11. Portkey:</strong> Made of old metal or wood. Teleports you.</div>
+            <div class="info-item"><strong>12. Floo Powder:</strong> A silver powder for fireplaces.</div>
+            <div class="info-item"><strong>13. Howler:</strong> Made of red paper. It screams letters.</div>
+            <div class="info-item"><strong>14. Mirror of Erised:</strong> Made of gold and glass.</div>
+            <div class="info-item"><strong>15. Omnioculars:</strong> Made of brass. Records magic games.</div>
+        </div>
+
+        <h3 style="margin-top:40px;">📚 Magical Subjects</h3>
+        <div class="info-grid">
+            <div class="info-item"><strong>🧪 Potions:</strong> You mix ingredients in a cauldron. It is harder than Charms.</div>
+            <div class="info-item"><strong>✨ Charms:</strong> You learn useful spells like 'Wingardium Leviosa'. It is fun!</div>
+            <div class="info-item"><strong>🌿 Herbology:</strong> You study magic plants in greenhouses. It is dirtier than History.</div>
+            <div class="info-item"><strong>🧹 Flying:</strong> You ride broomsticks. It is the most exciting class.</div>
+            <div class="info-item"><strong>⚔️ Defence Against the Dark Arts:</strong> You learn to protect yourself. It is dangerous.</div>
+            <div class="info-item"><strong>📜 History of Magic:</strong> You learn about the past. It is more boring than Quidditch.</div>
         </div>
 
         <div class="task-card">
-            <h3>Magical vs. Muggle Comparison (Guide)</h3>
-            <p>Use these 3 examples as a model to create your own (these do not count for your final project!):</p>
+            <h3>Comparison Examples (Model)</h3>
             <div class="example-box">
-                <p><strong>Example A:</strong> The <em>Firebolt broomstick</em> is <strong>faster than</strong> a Muggle bicycle.</p>
-                <p><strong>Example B:</strong> An <em>Invisibility Cloak</em> is <strong>more expensive than</strong> a normal coat.</p>
-                <p><strong>Example C:</strong> The <em>Sorting Hat</em> is <strong>older than</strong> my school uniform.</p>
+                <p><strong>Artifacts:</strong> The <em>Firebolt</em> is <strong>faster than</strong> a Muggle bike.</p>
+                <p><strong>Subjects:</strong> <em>Potions</em> is <strong>more dangerous than</strong> Muggle Science.</p>
+                <p><strong>Materials:</strong> The <em>Sorting Hat</em> is <strong>older than</strong> a Muggle cap.</p>
             </div>
         </div>
     </div>
 
     <div id="subjects" class="section-content">
-        <h2>Magical Subjects</h2>
-        <div class="subject-grid">
-            <div class="subject-item"><h3>🧪 Potions</h3><p>Harder / Dangerous</p></div>
-            <div class="subject-item"><h3>✨ Charms</h3><p>Easier / Fun</p></div>
-            <div class="subject-item"><h3>🌿 Herbology</h3><p>Dirty / Interesting</p></div>
-            <div class="subject-item"><h3>🧹 Flying</h3><p>Fast / Exciting</p></div>
-        </div>
-
-        <div class="task-card" style="margin-top:30px; text-align: center;">
-            <h3>⚔️ The Subject Duel</h3>
+        <h2>The Subject Duel</h2>
+        <div class="task-card" style="text-align: center;">
             <p>Select two subjects to see a comparison:</p>
-            <select id="sub1" style="padding:10px;"><option value="Potions">Potions</option><option value="Charms">Charms</option><option value="Herbology">Herbology</option><option value="Flying">Flying</option></select>
+            <select id="sub1" style="padding:10px;"><option value="Potions">Potions</option><option value="Charms">Charms</option><option value="Herbology">Herbology</option><option value="Flying">Flying</option><option value="History">History</option></select>
             <span style="font-weight:bold;"> VS </span>
-            <select id="sub2" style="padding:10px;"><option value="Flying">Flying</option><option value="Potions">Potions</option><option value="Charms">Charms</option><option value="Herbology">Herbology</option></select>
+            <select id="sub2" style="padding:10px;"><option value="Flying">Flying</option><option value="Potions">Potions</option><option value="Charms">Charms</option><option value="Herbology">Herbology</option><option value="Defence">D.A.D.A.</option></select>
             <br><br>
             <button class="game-btn" onclick="compareSubjects()">Cast Comparison Spell!</button>
             <p id="duel-result" style="font-weight:bold; color: var(--gryffindor-red); margin-top:15px; min-height: 40px;"></p>
@@ -286,21 +273,22 @@
         <h2>Spells of Language</h2>
         <div class="task-card">
             <h3>🧪 Comparing Magic</h3>
-            <p>Short words: <strong>-er than</strong>. <br> Long words: <strong>More + adjective + than</strong>.</p>
+            <p>Short words: <strong>-er than</strong> (fast -> faster). <br> Long words: <strong>More + adjective + than</strong> (interesting -> more interesting).</p>
         </div>
         <div class="task-card">
             <h3>📜 Materials: "Made of"</h3>
-            <p>The bin is <span class="highlight">made of</span> metal. The ebook is <span class="highlight">made of</span> plastic and glass.</p>
+            <p>The wand is <span class="highlight">made of</span> wood. The snitch is <span class="highlight">made of</span> gold.</p>
         </div>
     </div>
 
     <div id="task" class="section-content">
-        <h2>Your Creation: The Explorer's Scroll</h2>
+        <h2>The Big Project: The Explorer's Scroll</h2>
         <div class="task-card">
-            <h3>The Mission</h3>
-            <p>1. <strong>Muggle Objects:</strong> Draw 4 items and label them with <strong>"made of"</strong>.</p>
-            <p>2. <strong>Subject Battle:</strong> Compare 3 Hogwarts subjects with 3 Muggle subjects.</p>
-            <p>3. <strong>Yesterday's Diary:</strong> Write 4 sentences using <em>went, saw, ate, had</em>.</p>
+            <h3>Final Mission Requirements</h3>
+            <p>1. <strong>Muggle Objects:</strong> Draw 4 items and label what they are <strong>made of</strong>.</p>
+            <p>2. <strong>Artifact Battle:</strong> Compare 3 magical objects from the list with 3 Muggle objects (e.g., <em>Remembrall vs. Smartphone</em>).</p>
+            <p>3. <strong>Subject Battle:</strong> Compare 3 Hogwarts subjects with 3 Muggle subjects (e.g., <em>Potions vs. Chemistry</em>).</p>
+            <p>4. <strong>Yesterday's Diary:</strong> Write 4 sentences about your day using <em>went, saw, ate, had</em>.</p>
         </div>
     </div>
 
@@ -341,7 +329,7 @@
         var buttons = document.getElementsByClassName('tab-btn');
         for (var i = 0; i < buttons.length; i++) buttons[i].classList.remove('active');
         document.getElementById(tabId).classList.add('active');
-        if (event.currentTarget) event.currentTarget.classList.add('active');
+        if (event && event.currentTarget) event.currentTarget.classList.add('active');
     }
 
     function compareSubjects() {
