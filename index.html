@@ -163,6 +163,16 @@
             border-top: 2px solid var(--gryffindor-red);
             padding-top: 15px;
         }
+
+        .main-gif {
+            width: 100%;
+            max-width: 600px;
+            display: block;
+            margin: 20px auto;
+            border: 4px solid var(--gold);
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.3);
+        }
     </style>
 </head>
 <body>
@@ -187,15 +197,14 @@
         <div class="owl-letter">
             <p>"Attention Wizards and Witches,</p>
             <p>Artifacts from the Muggle world are appearing in Hogwarts! We've found things called <strong>'scissors'</strong>, <strong>'ebooks'</strong>, and even a <strong>'website'</strong>. We don't know what they are or what they are <strong>made of</strong>.</p>
-            <p>Your mission is to explore our magic subjects and compare them to the Muggle world. Good luck!"</p>
+            <p>Your mission is to explore our magic subjects and compare them to the Muggle world. Watch out for any trolls in the dungeon while you work!</p>
             <p style="text-align: right;">— Arthur Weasley, Office of Muggle Artifacts</p>
         </div>
+        <img class="main-gif" src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNHJidWp6dzRwdWp6dzRwdWp6dzRwdWp6dzRwdWp6dzRwdWp6dw/10S2M39E98N_S/giphy.gif" alt="Hogwarts Troll">
     </div>
 
     <div id="subjects" class="section-content">
         <h2>Magical Subjects</h2>
-        <p>Explore the classes we have at Hogwarts. Compare them using your magic adjectives!</p>
-        
         <div class="subject-grid">
             <div class="subject-item"><h3>🧪 Potions</h3><p>Harder / Dangerous</p></div>
             <div class="subject-item"><h3>✨ Charms</h3><p>Easier / Fun</p></div>
@@ -219,7 +228,7 @@
         <h2>Spells of Language</h2>
         <div class="task-card">
             <h3>🧪 Comparing Magic</h3>
-            <p>Short words: <strong>-er than</strong> (Harder than). <br> Long words: <strong>More + adjective + than</strong> (More interesting than).</p>
+            <p>Short words: <strong>-er than</strong>. <br> Long words: <strong>More + adjective + than</strong>.</p>
         </div>
         <div class="task-card">
             <h3>📜 Materials: "Made of"</h3>
@@ -239,10 +248,10 @@
     <div id="task" class="section-content">
         <h2>Your Creation: The Explorer's Scroll</h2>
         <div class="task-card">
-            <h3>The Mission (What to Create)</h3>
-            <p>1. <strong>Muggle Objects:</strong> Draw 4 items (scissors, bin, ebook, dictionary). Label them with <strong>"made of"</strong>.</p>
-            <p>2. <strong>Subject Battle:</strong> Compare 3 Hogwarts subjects with 3 Muggle subjects (Maths, Art, Geography). <br> <em>Example: "Potions is more dangerous than Maths!"</em></p>
-            <p>3. <strong>Yesterday's Diary:</strong> Write 4 sentences about what your team <strong>did yesterday</strong> using <em>went, saw, ate, had</em>.</p>
+            <h3>The Mission</h3>
+            <p>1. <strong>Muggle Objects:</strong> Draw 4 items and label them with <strong>"made of"</strong>.</p>
+            <p>2. <strong>Subject Battle:</strong> Compare 3 Hogwarts subjects with 3 Muggle subjects.</p>
+            <p>3. <strong>Yesterday's Diary:</strong> Write 4 sentences using <em>went, saw, ate, had</em>.</p>
         </div>
     </div>
 
@@ -261,12 +270,12 @@
         <h2>Magical Certificate</h2>
         <div class="task-card certificate-form">
             <label>Team Name:</label>
-            <input type="text" id="team-name" placeholder="e.g. The Golden Snitches">
+            <input type="text" id="team-name" placeholder="The Golden Snitches">
             <label>Wizard 1:</label>
             <input type="text" id="wizard-1" placeholder="Student Name">
             <label>Wizard 2:</label>
             <input type="text" id="wizard-2" placeholder="Student Name">
-            <button class="game-btn" style="width:100%; margin-top:20px;" onclick="generateCertificate()">Download PDF Certificate</button>
+            <button class="game-btn" style="width:100%; margin-top:20px; background-color:#006400; color:white;" onclick="generateCertificate()">Download PDF Certificate</button>
         </div>
     </div>
 
@@ -295,7 +304,6 @@
         res.innerText = "✨ " + comps[Math.floor(Math.random()*comps.length)];
     }
 
-    // --- FULL 20 QUESTIONS DATA ---
     const allQuestions = [
         { q: "We use _______ to cut paper.", a: ["Bin", "Scissors", "Ebook"], c: 1 },
         { q: "Potions is _______ than Charms.", a: ["harder", "more hard", "the hardest"], c: 0 },
@@ -332,7 +340,7 @@
         const msg = document.getElementById('result-msg');
         msg.innerText = "";
         if (currentQ >= allQuestions.length) {
-            document.getElementById('question-text').innerText = "Exam Over! " + (score >= 15 ? "Outstanding!" : "Try again!");
+            document.getElementById('question-text').innerText = "Exam Over! Points: " + score + "/20";
             container.innerHTML = "";
             document.getElementById('start-btn').style.display = "inline-block";
             return;
@@ -354,7 +362,6 @@
         });
     }
 
-    // ORIGINAL PROFESSIONAL CERTIFICATE LOGIC
     function generateCertificate() {
         const team = document.getElementById('team-name').value || "The Explorers";
         const w1 = document.getElementById('wizard-1').value || "Witch/Wizard";
@@ -362,21 +369,15 @@
         const { jsPDF } = window.jspdf;
         const doc = new jsPDF({ orientation: 'landscape' });
         doc.setFillColor(253, 245, 230); doc.rect(0, 0, 300, 210, 'F');
-        doc.setLineWidth(2); doc.setDrawColor(116, 0, 1); doc.rect(10, 10, 277, 190);
+        doc.setLineWidth(3); doc.setDrawColor(116, 0, 1); doc.rect(10, 10, 277, 190);
         doc.setDrawColor(211, 166, 37); doc.rect(13, 13, 271, 184);
         doc.setFont('times', 'bold'); doc.setTextColor(116, 0, 1); doc.setFontSize(28);
         doc.text("Hogwarts Classroom Proficiency Certificate", 148, 45, { align: 'center' });
-        doc.setFontSize(18); doc.setTextColor(0, 0, 0);
-        doc.text("This document certifies that the team:", 148, 70, { align: 'center' });
-        doc.setFontSize(26); doc.setTextColor(116, 0, 1);
-        doc.text(team.toUpperCase(), 148, 90, { align: 'center' });
+        doc.setFontSize(26); doc.text(team.toUpperCase(), 148, 90, { align: 'center' });
         doc.setFontSize(20); doc.setTextColor(0, 0, 0);
         doc.text("Members: " + w1 + (w2 ? " & " + w2 : ""), 148, 115, { align: 'center' });
-        doc.setFontSize(16);
-        doc.text("Have mastered Hogwarts Subjects, Materials and English Grammar.", 148, 145, { align: 'center' });
-        doc.setFontSize(12);
-        doc.text("Headmaster Albus Dumbledore", 50, 185); doc.line(30, 180, 80, 180);
-        doc.text("Professor Jesús Moreno Velasco", 240, 185, { align: 'right' }); doc.line(200, 180, 260, 180);
+        doc.text("Headmaster Albus Dumbledore", 50, 185);
+        doc.text("Professor Jesús Moreno Velasco", 240, 185, { align: 'right' });
         doc.save(`Certificate_${team}.pdf`);
     }
 </script>
