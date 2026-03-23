@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harry Potter WebQuest - 3º Primaria</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Fauna+One&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --hogwarts-gold: #ffcc00;
+            --hogwarts-red: #740001;
+            --parchment: #f4e4bc;
+        }
+
+        body {
+            background-color: #1a1a1a;
+            color: #333;
+            font-family: 'Fauna One', serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: var(--hogwarts-red);
+            color: var(--hogwarts-gold);
+            text-align: center;
+            padding: 2rem;
+            border-bottom: 5px solid var(--hogwarts-gold);
+        }
+
+        h1, h2 {
+            font-family: 'Cinzel', serif;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
+            background: var(--parchment);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .section {
+            margin-bottom: 40px;
+            border-bottom: 1px solid #ccc;
+            padding-bottom: 20px;
+        }
+
+        .vocab-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 10px;
+            text-align: center;
+        }
+
+        .vocab-item {
+            background: rgba(116, 0, 1, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid var(--hogwarts-red);
+        }
+
+        .quiz-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            border: 2px solid var(--hogwarts-red);
+        }
+
+        .question {
+            font-weight: bold;
+            margin-top: 15px;
+        }
+
+        button {
+            background-color: var(--hogwarts-red);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            margin-top: 20px;
+        }
+
+        button:hover {
+            background-color: #a30001;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Hogwarts</h1>
+    <p>English WebQuest: Year 3</p>
+</header>
+
+<div class="container">
+    
+    <div class="section">
+        <h2>The Mission</h2>
+        <p>¡Hola, joven mago o bruja! Para entrar en el Gran Comedor, debes completar este desafío de inglés. Aprenderemos sobre objetos escolares, comparaciones mágicas y lo que Harry hizo en el pasado.</p>
+    </div>
+
+    <div class="section">
+        <h2>School Subjects & Objects</h2>
+        <div class="vocab-grid">
+            <div class="vocab-item">Art</div>
+            <div class="vocab-item">Maths</div>
+            <div class="vocab-item">History</div>
+            <div class="vocab-item">Geography</div>
+            <div class="vocab-item">Scissors</div>
+            <div class="vocab-item">Ebook</div>
+            <div class="vocab-item">Dictionary</div>
+            <div class="vocab-item">Bin</div>
+            <div class="vocab-item">Website</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Magic Grammar</h2>
+        <p><strong>1. Comparatives:</strong> Hermione is <em>smarter than</em> Ron. <br>
+           <strong>2. Superlatives:</strong> Harry is <em>the fastest</em> seeker.</p>
+        <p><strong>3. Made of:</strong> This wand is <em>made of</em> wood and phoenix feather.</p>
+        <p><strong>4. Past Simple:</strong> Yesterday, Harry <em>went</em> (go) to Hogsmeade and <em>saw</em> (see) a ghost.</p>
+    </div>
+
+    <div class="section">
+        <h2>The Great Wizarding Quiz</h2>
+        <div id="quiz" class="quiz-container">
+            <div class="question">1. In which subject do we use numbers?</div>
+            <input type="radio" name="q1" value="a"> Art<br>
+            <input type="radio" name="q1" value="b"> Maths<br>
+            
+            <div class="question">2. Giants are ______ than humans.</div>
+            <input type="radio" name="q2" value="a"> bigger<br>
+            <input type="radio" name="q2" value="b"> the biggest<br>
+
+            <div class="question">3. What is a "bin" made of? (usually)</div>
+            <input type="radio" name="q3" value="a"> plastic or metal<br>
+            <input type="radio" name="q3" value="b"> paper<br>
+
+            <div class="question">4. What is the past of the verb "GO"?</div>
+            <input type="radio" name="q4" value="a"> goed<br>
+            <input type="radio" name="q4" value="b"> went<br>
+
+            <div class="question">5. We use ______ to cut paper in Art.</div>
+            <input type="radio" name="q5" value="a"> dictionary<br>
+            <input type="radio" name="q5" value="b"> scissors<br>
+
+            <button onclick="checkQuiz()">Check Answers</button>
+            <div id="result"></div>
+        </div>
+    </div>
+
+</div>
+
+<script>
+    function checkQuiz() {
+        let score = 0;
+        const q1 = document.querySelector('input[name="q1"]:checked');
+        const q2 = document.querySelector('input[name="q2"]:checked');
+        const q3 = document.querySelector('input[name="q3"]:checked');
+        const q4 = document.querySelector('input[name="q4"]:checked');
+        const q5 = document.querySelector('input[name="q5"]:checked');
+
+        if (q1 && q1.value === "b") score++;
+        if (q2 && q2.value === "a") score++;
+        if (q3 && q3.value === "a") score++;
+        if (q4 && q4.value === "b") score++;
+        if (q5 && q5.value === "b") score++;
+
+        const resultDiv = document.getElementById('result');
+        if (score >= 4) {
+            resultDiv.innerHTML = "Perfect! You got " + score + "/5. You are a True Wizard! 🧙‍♂️";
+            resultDiv.style.color = "green";
+        } else {
+            resultDiv.innerHTML = "You got " + score + "/5. Try again, Muggle!";
+            resultDiv.style.color = "red";
+        }
+    }
+</script>
+
+</body>
+</html>
