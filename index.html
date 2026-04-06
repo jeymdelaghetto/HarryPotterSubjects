@@ -13,6 +13,7 @@
             --gryffindor-red: #740001;
             --gold: #d3a625;
             --ink: #2b1b17;
+            --slytherin-green: #1a472a;
         }
 
         body {
@@ -35,6 +36,7 @@
             border-radius: 12px;
             box-shadow: 0 0 40px rgba(211, 166, 37, 0.4);
             border: 4px solid var(--gold);
+            position: relative;
         }
 
         header {
@@ -47,13 +49,16 @@
         h1 {
             font-family: 'Cinzel', serif;
             color: var(--gryffindor-red);
-            font-size: 3em;
+            font-size: 3.2em;
             margin: 10px 0;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.15);
+            line-height: 1.1;
         }
 
         h2 { 
             color: var(--gryffindor-red); 
             border-bottom: 2px solid var(--gold); 
+            padding-bottom: 5px; 
             font-family: 'Cinzel', serif;
         }
 
@@ -61,46 +66,43 @@
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 30px;
+            gap: 12px;
+            margin-bottom: 35px;
         }
 
         .tab-btn {
             background-color: var(--gryffindor-red);
             color: var(--gold);
             border: 2px solid var(--gold);
-            padding: 10px 15px;
+            padding: 12px 20px;
             cursor: pointer;
             font-family: 'Cinzel', serif;
-            border-radius: 5px;
+            border-radius: 8px;
             font-weight: bold;
-            transition: 0.3s;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
         }
 
         .tab-btn:hover, .tab-btn.active {
             background-color: var(--gold);
             color: var(--gryffindor-red);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        .section-content { display: none; animation: fadeIn 0.5s; }
+        .section-content { display: none; animation: fadeIn 0.6s; }
         .section-content.active { display: block; }
 
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         .owl-letter {
             background-color: #f4e8d1;
             border: 2px solid #8b4513;
-            padding: 20px;
+            padding: 25px;
+            margin: 20px 0;
             border-radius: 5px;
+            box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
             font-style: italic;
-        }
-
-        .task-card {
-            background-color: white;
-            border: 2px solid var(--gold);
-            padding: 20px;
-            margin: 15px 0;
-            border-radius: 10px;
         }
 
         .info-grid {
@@ -111,8 +113,8 @@
         }
 
         .info-item {
-            background: #fff;
-            border: 1px solid var(--gold);
+            background: #fff9e8;
+            border: 2px solid var(--gold);
             padding: 15px;
             border-radius: 8px;
             box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
@@ -120,68 +122,94 @@
 
         .info-item strong { color: var(--gryffindor-red); }
 
-        .subject-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 20px;
-        }
-
-        .subject-item {
-            background: #fff;
-            border: 2px inset var(--gold);
-            padding: 15px;
-            text-align: center;
-            border-radius: 8px;
+        .task-box {
+            background-color: rgba(211, 166, 37, 0.15);
+            border-left: 6px solid var(--gryffindor-red);
+            padding: 20px;
+            margin-bottom: 25px;
+            border-radius: 0 10px 10px 0;
         }
 
         .game-area {
             background-color: #1a1a24;
             color: #fff;
-            padding: 30px;
-            border-radius: 15px;
+            padding: 35px;
+            border-radius: 20px;
             text-align: center;
-            border: 3px solid var(--gold);
+            border: 4px solid var(--gold);
+            box-shadow: inset 0 0 20px #000;
         }
 
         .game-btn {
             background-color: var(--gold);
-            padding: 12px 24px;
-            margin: 8px;
-            border-radius: 5px;
+            color: var(--ink);
+            padding: 14px 28px;
+            margin: 10px;
+            border-radius: 8px;
             cursor: pointer;
-            border: none;
             font-family: 'MedievalSharp';
+            border: none;
+            font-size: 1.2em;
             font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .game-btn:hover { background-color: #eec14d; transform: scale(1.05); }
+
+        .main-gif {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 3px solid var(--gold);
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
         .highlight { color: var(--gryffindor-red); font-weight: bold; }
 
-        .certificate-form label { display: block; margin-top: 15px; font-weight: bold; }
-        .certificate-form input { width: 100%; padding: 10px; margin-top: 5px; border: 2px solid var(--gold); border-radius: 5px; box-sizing: border-box; }
-        
-        footer {
-            margin-top: 40px;
-            text-align: center;
-            border-top: 2px solid var(--gryffindor-red);
-            padding-top: 15px;
-        }
-
-        .main-gif {
-            width: 100%;
-            max-width: 650px;
+        .certificate-form label {
             display: block;
-            margin: 30px auto;
-            border: 5px double var(--gold);
-            border-radius: 8px;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+            margin-top: 20px;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
         }
 
-        .example-box {
-            background-color: #fff3cd;
-            border-left: 5px solid #856404;
-            padding: 15px;
-            margin: 20px 0;
+        .certificate-form input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            border: 2px solid var(--gryffindor-red);
+            border-radius: 5px;
+            font-size: 1em;
+            box-sizing: border-box;
+            background-color: #fff9e8;
+            font-family: 'MedievalSharp', cursive;
+        }
+
+        .download-btn {
+            background-color: #006400; 
+            color: white;
+            padding: 15px 30px;
+            border: 3px solid var(--gold);
+            border-radius: 10px;
+            font-size: 1.3em;
+            margin-top: 30px;
+            cursor: pointer;
+            font-family: 'Cinzel', serif;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            width: 100%;
+        }
+
+        .download-btn:hover { background-color: #004d00; }
+
+        footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 0.9em;
+            border-top: 2px solid var(--gryffindor-red);
+            padding-top: 20px;
         }
     </style>
 </head>
@@ -190,19 +218,19 @@
 <div class="container">
     <header>
         <h1>The Explorer's Scroll</h1>
-        <p style="font-size: 1.2em; color: var(--gryffindor-red);">Hogwarts English Mission - Year 3</p>
+        <p style="font-size: 1.4em; color: var(--gryffindor-red);">Hogwarts English Mission - Year 3</p>
     </header>
 
     <div class="nav-tabs">
         <button class="tab-btn active" onclick="openTab('intro')">The Owl</button>
-        <button class="tab-btn" onclick="openTab('artifacts')">Magical Artifacts & Subjects</button>
-        <button class="tab-btn" onclick="openTab('subjects')">Subject Duel</button>
-        <button class="tab-btn" onclick="openTab('grammar')">Magic Rules</button>
-        <button class="tab-btn" onclick="openTab('task')">The Big Project</button>
+        <button class="tab-btn" onclick="openTab('artifacts')">Artifacts</button>
+        <button class="tab-btn" onclick="openTab('subjects')">Subjects</button>
+        <button class="tab-btn" onclick="openTab('task')">The Project</button>
         <button class="tab-btn" onclick="openTab('game')">O.W.L. Exams</button>
         <button class="tab-btn" onclick="openTab('certificate')">Certificate</button>
     </div>
 
+    <!-- SECCIÓN INTRO -->
     <div id="intro" class="section-content active">
         <h2>Urgent: The Muggle World is Leaking!</h2>
         <div class="owl-letter">
@@ -211,113 +239,79 @@
             <p>Your mission is to explore our magic subjects and compare them to the Muggle world. Watch out for any trolls in the dungeon while you work!"</p>
             <p style="text-align: right;">— Arthur Weasley, Office of Muggle Artifacts</p>
         </div>
-        <img class="main-gif" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg14zXDcV-DspH4_Tj_u_n6QbVxcX6pU9m4xLvaDn0CptTqE4yKgHIjXb8y-8uxp2FouddVR6GI7T-CsuXKPoa7LP6QlmghU8q2sPVMiRxHo9jvtZX2hn5Wqyx6vN4qe62qwBYb0qEYx_l-/s1600/tumblr_o2q9smLqSP1uy3ut1o2_r1_540.gif" alt="Mountain Troll in the bathroom">
+        <img class="main-gif" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg14zXDcV-DspH4_Tj_u_n6QbVxcX6pU9m4xLvaDn0CptTqE4yKgHIjXb8y-8uxp2FouddVR6GI7T-CsuXKPoa7LP6QlmghU8q2sPVMiRxHo9jvtZX2hn5Wqyx6vN4qe62qwBYb0qEYx_l-/s1600/tumblr_o2q9smLqSP1uy3ut1o2_r1_540.gif" alt="Magic Troll">
     </div>
 
+    <!-- SECCIÓN ARTIFACTS -->
     <div id="artifacts" class="section-content">
-        <h2>Reference Guide: Artifacts & Classes</h2>
-        
-        <h3>✨ 15 Magical Objects</h3>
+        <h2>Magical Artifacts Guide</h2>
         <div class="info-grid">
             <div class="info-item"><strong>1. Magic Wand:</strong> Made of wood and a phoenix feather.</div>
-            <div class="info-item"><strong>2. Invisibility Cloak:</strong> Made of magical fabric. Very light.</div>
-            <div class="info-item"><strong>3. Time-Turner:</strong> Made of gold and sand. Very dangerous.</div>
+            <div class="info-item"><strong>2. Invisibility Cloak:</strong> Made of magical fabric.</div>
+            <div class="info-item"><strong>3. Time-Turner:</strong> Made of gold and sand.</div>
             <div class="info-item"><strong>4. Marauder's Map:</strong> Made of parchment and ink.</div>
             <div class="info-item"><strong>5. Remembrall:</strong> Made of glass. Turns red if you forget.</div>
-            <div class="info-item"><strong>6. Sneakoscope:</strong> Made of glass. It spins and whistles.</div>
-            <div class="info-item"><strong>7. Sorting Hat:</strong> Made of old leather. It talks!</div>
-            <div class="info-item"><strong>8. Pensieve:</strong> Made of stone. Used for memories.</div>
-            <div class="info-item"><strong>9. Firebolt:</strong> Made of wood and iron. Fastest broom.</div>
-            <div class="info-item"><strong>10. Deluminator:</strong> Made of silver. Absorbs light.</div>
-            <div class="info-item"><strong>11. Portkey:</strong> Made of old metal or wood. Teleports you.</div>
-            <div class="info-item"><strong>12. Floo Powder:</strong> A silver powder for fireplaces.</div>
-            <div class="info-item"><strong>13. Howler:</strong> Made of red paper. It screams letters.</div>
-            <div class="info-item"><strong>14. Mirror of Erised:</strong> Made of gold and glass.</div>
-            <div class="info-item"><strong>15. Omnioculars:</strong> Made of brass. Records magic games.</div>
-        </div>
-
-        <h3 style="margin-top:40px;">📚 Magical Subjects</h3>
-        <div class="info-grid">
-            <div class="info-item"><strong>🧪 Potions:</strong> You mix ingredients in a cauldron. It is harder than Charms.</div>
-            <div class="info-item"><strong>✨ Charms:</strong> You learn useful spells like 'Wingardium Leviosa'. It is fun!</div>
-            <div class="info-item"><strong>🌿 Herbology:</strong> You study magic plants in greenhouses. It is dirtier than History.</div>
-            <div class="info-item"><strong>🧹 Flying:</strong> You ride broomsticks. It is the most exciting class.</div>
-            <div class="info-item"><strong>⚔️ Defence Against the Dark Arts:</strong> You learn to protect yourself. It is dangerous.</div>
-            <div class="info-item"><strong>📜 History of Magic:</strong> You learn about the past. It is more boring than Quidditch.</div>
-        </div>
-
-        <div class="task-card">
-            <h3>Comparison Examples (Model)</h3>
-            <div class="example-box">
-                <p><strong>Artifacts:</strong> The <em>Firebolt</em> is <strong>faster than</strong> a Muggle bike.</p>
-                <p><strong>Subjects:</strong> <em>Potions</em> is <strong>more dangerous than</strong> Muggle Science.</p>
-                <p><strong>Materials:</strong> The <em>Sorting Hat</em> is <strong>older than</strong> a Muggle cap.</p>
-            </div>
+            <div class="info-item"><strong>6. Sorting Hat:</strong> Made of old leather. It talks!</div>
         </div>
     </div>
 
+    <!-- SECCIÓN SUBJECTS -->
     <div id="subjects" class="section-content">
-        <h2>The Subject Duel</h2>
-        <div class="task-card" style="text-align: center;">
-            <p>Select two subjects to see a comparison:</p>
-            <select id="sub1" style="padding:10px;"><option value="Potions">Potions</option><option value="Charms">Charms</option><option value="Herbology">Herbology</option><option value="Flying">Flying</option><option value="History">History</option></select>
-            <span style="font-weight:bold;"> VS </span>
-            <select id="sub2" style="padding:10px;"><option value="Flying">Flying</option><option value="Potions">Potions</option><option value="Charms">Charms</option><option value="Herbology">Herbology</option><option value="Defence">D.A.D.A.</option></select>
-            <br><br>
-            <button class="game-btn" onclick="compareSubjects()">Cast Comparison Spell!</button>
-            <p id="duel-result" style="font-weight:bold; color: var(--gryffindor-red); margin-top:15px; min-height: 40px;"></p>
+        <h2>Hogwarts Subjects</h2>
+        <div class="info-grid">
+            <div class="info-item"><strong>🧪 Potions:</strong> Mixing ingredients. It's harder than Charms.</div>
+            <div class="info-item"><strong>✨ Charms:</strong> Learning spells. It is very fun!</div>
+            <div class="info-item"><strong>🌿 Herbology:</strong> Studying magic plants. It's dirtier than History.</div>
+            <div class="info-item"><strong>🧹 Flying:</strong> Riding broomsticks. The most exciting class.</div>
         </div>
     </div>
 
-    <div id="grammar" class="section-content">
-        <h2>Spells of Language</h2>
-        <div class="task-card">
-            <h3>🧪 Comparing Magic</h3>
-            <p>Short words: <strong>-er than</strong> (fast -> faster). <br> Long words: <strong>More + adjective + than</strong> (interesting -> more interesting).</p>
-        </div>
-        <div class="task-card">
-            <h3>📜 Materials: "Made of"</h3>
-            <p>The wand is <span class="highlight">made of</span> wood. The snitch is <span class="highlight">made of</span> gold.</p>
-        </div>
-    </div>
-
+    <!-- SECCIÓN TASK -->
     <div id="task" class="section-content">
-        <h2>The Big Project: The Explorer's Scroll</h2>
-        <div class="task-card">
-            <h3>Final Mission Requirements</h3>
-            <p>1. <strong>Muggle Objects:</strong> Draw 4 items and label what they are <strong>made of</strong>.</p>
-            <p>2. <strong>Artifact Battle:</strong> Compare 3 magical objects from the list with 3 Muggle objects (e.g., <em>Remembrall vs. Smartphone</em>).</p>
-            <p>3. <strong>Subject Battle:</strong> Compare 3 Hogwarts subjects with 3 Muggle subjects (e.g., <em>Potions vs. Chemistry</em>).</p>
-            <p>4. <strong>Yesterday's Diary:</strong> Write 4 sentences about your day using <em>went, saw, ate, had</em>.</p>
+        <h2>The Big Project</h2>
+        <div class="task-box">
+            <h3>📍 Mission 1: The Comparison Scroll</h3>
+            <p>Create a poster comparing 3 Muggle objects with 3 Magical artifacts. Describe what they are <strong>made of</strong> and use <strong>comparatives</strong> (e.g., "The Pensieve is older than a laptop").</p>
+        </div>
+        <div class="task-box">
+            <h3>📍 Mission 2: The Presentation</h3>
+            <p>Present your scroll to the Class. Use your wand to point at the differences!</p>
         </div>
     </div>
 
+    <!-- SECCIÓN JUEGO -->
     <div id="game" class="section-content">
-        <h2>O.W.L. Exams: Level 3</h2>
+        <h2>O.W.L. Exams: Explorer Challenge</h2>
         <div class="game-area">
-            <h3 id="question-text">Ready for the exam?</h3>
+            <h3 id="question-text">Prove your knowledge!</h3>
             <div id="answers-container"></div>
-            <p id="result-msg" style="min-height:30px; font-weight:bold;"></p>
-            <p>Wizard Points: <span id="score">0</span> / 20</p>
+            <p id="result-msg" style="font-weight:bold; font-size:1.3em; margin: 15px 0; min-height: 35px;"></p>
+            <p style="font-size: 1.4em;">Gryffindor Points: <span id="score" style="color:var(--gold); font-size: 1.2em;">0</span> / 5</p>
             <button id="start-btn" class="game-btn" onclick="startGame()">Start Exam</button>
         </div>
     </div>
 
+    <!-- SECCIÓN CERTIFICADO (IGUAL A LA ANTERIOR) -->
     <div id="certificate" class="section-content">
-        <h2>Magical Certificate</h2>
-        <div class="task-card certificate-form">
-            <label>Team Name:</label>
-            <input type="text" id="team-name" placeholder="The Golden Snitches">
-            <label>Wizard 1:</label>
-            <input type="text" id="wizard-1" placeholder="Student Name">
-            <label>Wizard 2:</label>
-            <input type="text" id="wizard-2" placeholder="Student Name">
-            <button class="game-btn" style="width:100%; margin-top:20px; background-color:#006400; color:white;" onclick="generateCertificate()">Download PDF Certificate</button>
+        <h2>Magical Certificate of Completion</h2>
+        <p>Enter your team details to claim your official Hogwarts Explorer Certificate!</p>
+        
+        <div class="certificate-form">
+            <label for="team-name">Team Name:</label>
+            <input type="text" id="team-name" placeholder="e.g., The Brave Gryffindors" required>
+
+            <label for="wizard-1">Wizard/Witch 1 Name:</label>
+            <input type="text" id="wizard-1" placeholder="Student name" required>
+
+            <label for="wizard-2">Wizard/Witch 2 Name (Optional):</label>
+            <input type="text" id="wizard-2" placeholder="Partner name">
+
+            <button class="download-btn" onclick="generateCertificate()">Download Magical Certificate</button>
         </div>
     </div>
 
     <footer>
-        <p>Year 3 English Mission | <strong>Created by Jesús Moreno Velasco</strong></p>
+        <p>Unit: Hogwarts Explorer | Designed for Primary English Class | <strong>Created by Jesús Moreno Velasco</strong></p>
     </footer>
 </div>
 
@@ -329,42 +323,20 @@
         var buttons = document.getElementsByClassName('tab-btn');
         for (var i = 0; i < buttons.length; i++) buttons[i].classList.remove('active');
         document.getElementById(tabId).classList.add('active');
-        if (event && event.currentTarget) event.currentTarget.classList.add('active');
+        if (event) event.currentTarget.classList.add('active');
     }
 
-    function compareSubjects() {
-        const s1 = document.getElementById('sub1').value;
-        const s2 = document.getElementById('sub2').value;
-        const res = document.getElementById('duel-result');
-        if(s1 === s2) { res.innerText = "Choose two different subjects!"; return; }
-        const comps = [`${s1} is more exciting than ${s2}!`, `${s1} is harder than ${s2}.`, `${s1} is better than ${s2}!`, `${s2} is more dangerous than ${s1}!`];
-        res.innerText = "✨ " + comps[Math.floor(Math.random()*comps.length)];
-    }
-
+    // Quiz Data
     const allQuestions = [
-        { q: "We use _______ to cut paper.", a: ["Bin", "Scissors", "Ebook"], c: 1 },
-        { q: "Potions is _______ than Charms.", a: ["harder", "more hard", "the hardest"], c: 0 },
-        { q: "A bin is usually made of _______.", a: ["paper", "metal", "glass"], c: 1 },
-        { q: "Yesterday, Harry _______ (go) to Hogsmeade.", a: ["go", "goed", "went"], c: 2 },
-        { q: "Which subject uses magic plants?", a: ["Potions", "Herbology", "Maths"], c: 1 },
-        { q: "An ebook is made of _______ and metal.", a: ["wood", "plastic", "paper"], c: 1 },
-        { q: "The past of 'SEE' is...", a: ["Seen", "Saw", "Seed"], c: 1 },
-        { q: "Flying is the _______ class!", a: ["most exciting", "more exciting", "excitinger"], c: 0 },
-        { q: "We check new words in a _______.", a: ["Dictionary", "Bin", "Website"], c: 0 },
-        { q: "History is _______ than Flying.", a: ["boringer", "more boring", "the most boring"], c: 1 },
-        { q: "They _______ (eat) dinner at the Great Hall.", a: ["ate", "eated", "eat"], c: 0 },
-        { q: "A dictionary is made of _______.", a: ["metal", "glass", "paper"], c: 2 },
-        { q: "Art is _______ than Geography.", a: ["easyer", "easier", "the easiest"], c: 1 },
-        { q: "We look for info on the school _______.", a: ["bin", "website", "scissors"], c: 1 },
-        { q: "The past of 'HAVE' is...", a: ["Haved", "Haves", "Had"], c: 2 },
-        { q: "Hermione is _______ than Ron.", a: ["smartest", "smarter", "more smart"], c: 1 },
-        { q: "Potions class is very _______.", a: ["dangerous", "dangerer", "more dangerous"], c: 0 },
-        { q: "Last night, I _______ (write) a letter.", a: ["writed", "wrote", "write"], c: 1 },
-        { q: "A desk is made of _______.", a: ["wood", "plastic", "paper"], c: 0 },
-        { q: "What is the past of 'DRINK'?", a: ["Drinked", "Drank", "Drunk"], c: 1 }
+        { q: "The Sorting Hat is made of...", a: ["Wood", "Leather", "Glass"], c: 1 },
+        { q: "Potions is ______ than Charms.", a: ["Harder", "More fun", "Fastest"], c: 0 },
+        { q: "What is a wand made of?", a: ["Plastic", "Wood", "Metal"], c: 1 },
+        { q: "Flying is the ______ class.", a: ["Boring", "More exciting", "Most exciting"], c: 2 },
+        { q: "The Pensieve is used for...", a: ["Memories", "Flying", "Cooking"], c: 0 }
     ];
 
     let currentQ = 0; let score = 0;
+
     function startGame() {
         currentQ = 0; score = 0;
         document.getElementById('score').innerText = score;
@@ -376,21 +348,31 @@
         const container = document.getElementById('answers-container');
         const msg = document.getElementById('result-msg');
         msg.innerText = "";
+
         if (currentQ >= allQuestions.length) {
-            document.getElementById('question-text').innerText = "Exam Over! Points: " + score + "/20";
+            document.getElementById('question-text').innerText = "Exams Over!";
             container.innerHTML = "";
             document.getElementById('start-btn').style.display = "inline-block";
+            document.getElementById('start-btn').innerText = "Retake Exam";
             return;
         }
+
         const qData = allQuestions[currentQ];
         document.getElementById('question-text').innerText = `Q${currentQ + 1}: ${qData.q}`;
         container.innerHTML = "";
+
         qData.a.forEach((ans, i) => {
             const btn = document.createElement('button');
             btn.innerText = ans; btn.className = 'game-btn';
             btn.onclick = () => {
-                if(i === qData.c) { score++; msg.innerText = "✨ Correct!"; msg.style.color = "green"; }
-                else { msg.innerText = "❌ Incorrect!"; msg.style.color = "red"; }
+                if(i === qData.c) {
+                    score++;
+                    msg.innerText = "✨ Correct!";
+                    msg.style.color = "#4caf50";
+                } else {
+                    msg.innerText = "❌ Wrong!";
+                    msg.style.color = "#f44336";
+                }
                 document.getElementById('score').innerText = score;
                 currentQ++;
                 setTimeout(loadQuestion, 1000);
@@ -400,22 +382,53 @@
     }
 
     function generateCertificate() {
-        const team = document.getElementById('team-name').value || "The Explorers";
-        const w1 = document.getElementById('wizard-1').value || "Witch/Wizard";
-        const w2 = document.getElementById('wizard-2').value || "";
+        const teamName = document.getElementById('team-name').value.trim();
+        const wizard1 = document.getElementById('wizard-1').value.trim();
+        const wizard2 = document.getElementById('wizard-2').value.trim();
+
+        if (!teamName || !wizard1) {
+            alert("Please enter Team and Student names.");
+            return;
+        }
+
         const { jsPDF } = window.jspdf;
-        const doc = new jsPDF({ orientation: 'landscape' });
-        doc.setFillColor(253, 245, 230); doc.rect(0, 0, 300, 210, 'F');
-        doc.setLineWidth(3); doc.setDrawColor(116, 0, 1); doc.rect(10, 10, 277, 190);
-        doc.setDrawColor(211, 166, 37); doc.rect(13, 13, 271, 184);
-        doc.setFont('times', 'bold'); doc.setTextColor(116, 0, 1); doc.setFontSize(28);
-        doc.text("Hogwarts Classroom Proficiency Certificate", 148, 45, { align: 'center' });
-        doc.setFontSize(26); doc.text(team.toUpperCase(), 148, 90, { align: 'center' });
-        doc.setFontSize(20); doc.setTextColor(0, 0, 0);
-        doc.text("Members: " + w1 + (w2 ? " & " + w2 : ""), 148, 115, { align: 'center' });
-        doc.text("Headmaster Albus Dumbledore", 50, 185);
-        doc.text("Professor Jesús Moreno Velasco", 240, 185, { align: 'right' });
-        doc.save(`Certificate_${team}.pdf`);
+        const doc = new jsPDF({ orientation: 'landscape', unit: 'mm', format: 'a4' });
+        const width = doc.internal.pageSize.getWidth();
+        const height = doc.internal.pageSize.getHeight();
+        
+        doc.setFillColor(253, 245, 230); doc.rect(0, 0, width, height, 'F');
+        doc.setLineWidth(3); doc.setDrawColor(116, 0, 1); doc.rect(10, 10, width - 20, height - 20, 'S');
+        doc.setLineWidth(1); doc.setDrawColor(211, 166, 37); doc.rect(12, 12, width - 24, height - 24, 'S');
+
+        doc.setFont('times', 'bold'); doc.setTextColor(116, 0, 1); doc.setFontSize(30);
+        doc.text("Hogwarts School of Witchcraft and Wizardry", width / 2, 35, { align: 'center' });
+        doc.setFontSize(20);
+        doc.text("MAGICAL EXPLORER CERTIFICATE", width / 2, 50, { align: 'center' });
+
+        doc.setFont('times', 'normal'); doc.setTextColor(43, 27, 23); doc.setFontSize(18);
+        doc.text("This certifies that the team:", width / 2, 75, { align: 'center' });
+        doc.setFontSize(28); doc.setTextColor(116, 0, 1);
+        doc.text(teamName.toUpperCase(), width / 2, 90, { align: 'center' });
+
+        doc.setFontSize(16); doc.setTextColor(43, 27, 23);
+        doc.text("Consisting of the brilliant explorers:", width / 2, 105, { align: 'center' });
+        doc.setFontSize(20);
+        doc.text(wizard1 + (wizard2 ? ' and ' + wizard2 : ''), width / 2, 120, { align: 'center' });
+
+        doc.setFontSize(18);
+        doc.text("Have successfully completed 'The Explorer's Scroll' Mission,", width / 2, 145, { align: 'center' });
+        doc.text("mastering the language of both worlds.", width / 2, 155, { align: 'center' });
+
+        doc.setFont('times', 'bolditalic'); doc.setFontSize(24); doc.setTextColor(30, 144, 255);
+        doc.text("Hogwarts Awaits You Next Course!", width / 2, 175, { align: 'center' });
+
+        doc.setFontSize(12); doc.setTextColor(43, 27, 23);
+        doc.text("Headmaster Albus Dumbledore", 40, 195);
+        doc.line(30, 190, 80, 190);
+        doc.text("Professor Jesús Moreno Velasco", width - 80, 195);
+        doc.line(width - 90, 190, width - 40, 190);
+
+        doc.save(`Explorer_Certificate_${teamName}.pdf`);
     }
 </script>
 </body>
